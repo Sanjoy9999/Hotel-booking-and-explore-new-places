@@ -1,0 +1,110 @@
+// This is the edit listing page template
+<% layout('layouts/boilerplates') %> <!-- This line is added to include the boilerplate layout -->
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h2 class="mb-4">Edit Listing</h2>
+        <form method="post" action="/listings/<%= listings.id %>?_method=PUT" novalidate class="form-group needs-validation" enctype="multipart/form-data">
+            <!-- This is for the title -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="listing[title]" 
+                    id="title" 
+                    value="<%= listings.title %>" 
+                    placeholder="enter title"
+                    required
+                >
+                <div class="invalid-feedback">
+                    Please provide a valid title.
+                </div>
+            </div>
+
+            <!-- This is for the description -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea 
+                    name="listing[description]" 
+                    id="description" 
+                    class="form-control" 
+                    rows="4" 
+                    placeholder="Enter Description"
+                    required
+                ><%= listings.description %></textarea>
+                <div class="invalid-feedback">
+                    Please provide a valid description.
+                </div>
+            </div>
+             <!-- This is for the current image -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Current Image</label>
+                <img src=" <%= originalImageUrl %> " alt="listing image" >
+            </div>
+
+            <!-- This is for the image -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload New Image</label>
+                <input 
+                    type="file" 
+                    class="form-control" 
+                    name="listing[image]" 
+                    id="image"
+                >
+            </div>
+            
+            <div class="row"> 
+                <!-- This is for the price -->
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        name="listing[price]" 
+                        id="price" 
+                        value="<%= listings.price %>" 
+                        placeholder="enter price"
+                        required
+                    >
+                    <div class="invalid-feedback">
+                        Please provide a valid price.
+                    </div>
+                </div>
+
+                <!-- This is for the country -->
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        name="listing[country]" 
+                        id="country" 
+                        value="<%= listings.country %>" 
+                        placeholder="enter country"
+                        required
+                    >
+                    <div class="invalid-feedback">
+                        Please provide a valid country.
+                    </div>
+                </div>
+            </div>
+
+            <!-- This is for the location -->
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="listing[location]" 
+                    id="location" 
+                    value="<%= listings.location %>" 
+                    placeholder="enter location"
+                    required
+                >
+            </div>
+            <button type="submit" class="btn btn-dark edit-btn mt-3">Edit</button>
+            <br><br>
+        </form>
+    </div>
+</div>
+

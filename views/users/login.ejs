@@ -1,0 +1,46 @@
+// This file is part of the project "Node.js and Express.js Web Development".
+<% layout('layouts/boilerplates') %> 
+<div class="row mt-3">
+    <h2 class="col-6 offset-3"> Welcome back </h2>
+    <div class="col-6 offset-3">
+        <form action="/login" method="post" novalidate class="form-group">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="username" 
+                    id="username" 
+                    required
+                >
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    name="password" 
+                    id="password" 
+                    required
+                >
+            </div>
+            
+            <button class="btn btn-success">Login</button>
+        </form>
+        
+        <script>
+        const form = document.querySelector('form');
+        
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        });
+        </script>
+        
+    </div>
+</div>
+        

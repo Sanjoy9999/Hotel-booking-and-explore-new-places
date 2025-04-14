@@ -1,0 +1,13 @@
+// This is the error page template for displaying error messages
+<% layout('layouts/boilerplates') %> 
+<div class="container" style="margin-top: 50px; text-align: center; font-family: Arial, sans-serif;">
+    <div class="row">
+        <div class="col-8 offset-2" style="border: 2px solid #ff4d4d; border-radius: 10px; padding: 20px; background-color: #ffe6e6;">
+            <h2 class="mb-4" style="color: #cc0000;">Error</h2>
+            <p style="font-size: 18px; color: #333;"> <%= err.message %> </p>
+            <a href="/listings" class="btn btn-primary" style="margin-top: 20px; padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+                Back to Listings
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,150 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar Styling */
+.navbar {
+  height: 5rem;
+  background-color: #f8f9fa !important;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+ 
+/* nav-link */
+.nav-link {
+  color: #222222 !important;
+}
+
+/* Footer Info Links Styling */
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-social i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card Styling */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  overflow: hidden; /* Prevent content overflow on hover */
+  border-radius: 1rem; /* Ensure consistent border radius */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.listing-card:hover {
+  transform: scale(1.05);
+  box-shadow: #fff;
+}
+
+.card-img-top {
+  border-radius: 1rem !important; /* Round corners */
+  width: 100% !important;
+  height: 15rem; /* Set consistent height */
+  object-fit: cover !important; /* Maintain aspect ratio */
+}
+
+.card-body {
+  padding: 1rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-text {
+  font-weight: 400 !important;
+  margin-bottom: 0.5rem;
+}
+
+/* Button Hover Effect */
+.btn-primary {
+  width: 100%; /* Full-width button */
+  text-align: center;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+  transform: scale(1.1);
+}
+
+/* Button Click Effect */
+.btn-primary:active {
+  background-color: #003d80;
+  border-color: #002f63;
+  transform: scale(0.95);
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+/* Button for new page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* edit button for edit page */
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* show page */
+.show-img {
+  height: 30vh;
+}
+.btns {
+  display: flex;
+}
+
+show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+show-card :hover {
+  transform: none !important;
+}
+#map {
+  height: 400px;
+  width: 80vh;
+  margin: 20px 0;
+  border-radius: 10px;
+}
