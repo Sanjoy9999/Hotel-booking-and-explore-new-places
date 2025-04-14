@@ -7,7 +7,7 @@
   color: transparent;
 }
 
-// This is the star rating background
+
 .starability-result:after {
   content: " ";
   position: absolute;

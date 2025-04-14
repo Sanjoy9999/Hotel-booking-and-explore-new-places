@@ -9,7 +9,6 @@ body {
   flex: 1;
 }
 
-/* Navbar Styling */
 .navbar {
   height: 5rem;
   background-color: #f8f9fa !important;
@@ -20,12 +19,12 @@ body {
   font-size: 2rem;
 }
  
-/* nav-link */
+
 .nav-link {
   color: #222222 !important;
 }
 
-/* Footer Info Links Styling */
+
 .f-info-links a {
   text-decoration: none;
   color: #222222;
@@ -52,12 +51,14 @@ body {
 
 .f-info {
   text-align: center;
-  height: 8rem;
+  height: auto;
+  min-height: 8rem;
   background-color: #ebebeb;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding: 1.5rem 0;
 }
 
 /* Card Styling */
@@ -131,20 +132,95 @@ body {
 .show-img {
   height: 30vh;
 }
+
 .btns {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-show-card {
+.show-card {
   padding-left: 0;
   padding-right: 0;
 }
-show-card :hover {
+
+.show-card:hover {
   transform: none !important;
 }
+
 #map {
   height: 400px;
-  width: 80vh;
-  margin: 20px 0;
+  width: 100%;
+  max-width: 80vh;
+  margin: 20px auto;
   border-radius: 10px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Tablet view */
+  #filters {
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .filter {
+    margin-right: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .tax-toggle {
+    margin: 1rem auto;
+    width: 80%;
+  }
+  
+  .btns {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .btns .btn {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Mobile view */
+  .navbar {
+    height: auto;
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-brand {
+    margin-left: 1rem;
+  }
+  
+  .search-input {
+    padding: 0.5rem 1rem !important;
+    width: 100%;
+  }
+  
+  .f-info {
+    padding: 1rem 0.5rem;
+  }
+  
+  .f-info-links {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+  
+  .filter {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  #map {
+    height: 300px;
+  }
+  
+  .show-img {
+    height: 25vh;
+  }
 }

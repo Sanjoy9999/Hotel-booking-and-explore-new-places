@@ -1,4 +1,4 @@
-// This file is part of the project.
+
 <% layout('layouts/boilerplates') %>
     <style>
       #filters {
@@ -32,9 +32,26 @@
         display: flex;
         align-items: center;
       }
+      
+      @media (max-width: 768px) {
+        #filters {
+          overflow-x: auto;
+          justify-content: flex-start;
+          padding-bottom: 10px;
+        }
+        .filter {
+          min-width: 60px;
+        }
+        .tax-toggle {
+          margin-left: 0;
+          margin-top: 1rem;
+          width: 100%;
+          justify-content: center;
+        }
+      }
     </style>
 
-    <div id="filters">
+    <div id="filters" class="container-fluid">
        <div class="filter">
           <div><i class="fa-solid fa-fire"></i></div>
           <p>Trending</p>
@@ -86,17 +103,19 @@
         </div>
        </div>
     </div>
-    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 mt-3 mx-0">
         <% listings.forEach(function(listing) { %>
-            <div class="card col listing-card">
-                <img class="card-img-top" src="<%= listing.image.url %>" alt="Listing image" style="height: 20rem;">
-                <div class="card-body">
-                  <h5 class="card-title"><%= listing.title %></h5>
-                  <p class="card-text"> 
-                    &#8377;<%= listing.price ? listing.price.toLocaleString('en-IN') : "N/A" %> / Night
-                    <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
-                  </p>
-                  <a href='/listings/<%= listing.id %>' class="btn btn-primary">Show Details</a>
+            <div class="col mb-4">
+                <div class="card listing-card h-100">
+                    <img class="card-img-top" src="<%= listing.image.url %>" alt="Listing image" style="height: 20rem;">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= listing.title %></h5>
+                      <p class="card-text"> 
+                        &#8377;<%= listing.price ? listing.price.toLocaleString('en-IN') : "N/A" %> / Night
+                        <i class="tax-info"> &nbsp; &nbsp;+18% GST</i>
+                      </p>
+                      <a href='/listings/<%= listing.id %>' class="btn btn-primary">Show Details</a>
+                    </div>
                 </div>
             </div>
         <% }); %>
@@ -104,7 +123,7 @@
 
 
 
-// This is a script to toggle the display of tax information 
+
     <script>
       let taxSwitch = document.getElementById('flexSwitchCheckDefault');
        taxSwitch.addEventListener('click' , () => {

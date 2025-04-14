@@ -1,4 +1,4 @@
-// This is a template for displaying a single listing with its details, reviews, and a map.
+
 <% layout('layouts/boilerplates')  %>
 
 <script>
@@ -7,11 +7,11 @@
 
 
 <div class="row">
-    <div class="col-8 offset-3 mt-3 mb-2">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto mt-3 mb-2">
         <h2><b><%= listings.title || 'No Title Available' %></b></h2>
     </div>
 
-    <div class="card col-6 offset-3 show-card listing-card">
+    <div class="card col-12 col-md-10 col-lg-8 mx-auto show-card listing-card">
         <img src="<%= listings.image?.url || '/default-image.jpg' %>" class="card-img-top show-img" alt="Listing image">
         <div class="card-body">
             <p class="card-text"><b><i>Owned By : <%= listings.owner.username %></i></b></p>
@@ -23,18 +23,17 @@
     </div>
 
     <% if (currentUser && currentUser._id.equals(listings.owner._id)) { %>
-        <div class="btns offset-3">
-            <a href="/listings/<%= listings.id %>/edit" class="btn btn-dark col-1 offset-2 edit-btn mb-2">Edit</a>
-            <br><br>
-            <form action="/listings/<%= listings.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-dark offset-4">Delete</button>
+        <div class="btns col-12 col-md-10 col-lg-8 mx-auto my-3">
+            <a href="/listings/<%= listings.id %>/edit" class="btn btn-dark edit-btn mb-2">Edit</a>
+            <form action="/listings/<%= listings.id %>?_method=DELETE" method="POST" class="w-100 d-flex justify-content-center">
+                <button type="submit" class="btn btn-dark">Delete</button>
             </form>
         </div>
     <% } %>
 
-    <hr>
+    <hr class="col-12 col-md-10 col-lg-8 mx-auto">
 
-    <div class="col-8 offset-3 mt-3 mb-2">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto mt-3 mb-2">
         <% if (currentUser) { %>
             <h4>Leave a Review</h4>
             <form action="/listings/<%= listings.id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -60,8 +59,7 @@
                     <textarea 
                         id="comment" 
                         name="Review[comment]" 
-                        rows="3" 
-                        cols="50" 
+                        rows="3"
                         class="form-control" 
                         required 
                         placeholder="Leave a comment"></textarea>
@@ -78,24 +76,28 @@
             <p><b>All reviews</b></p>
             <div class="row">
                 <% for (let review of listings.reviews) { %>
-                    <div class="card col-5 ms-3 mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title"><%- review.author.username %></h5>
-                            <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
-                            <p class="card-text"><%= review.comment %></p>
+                    <div class="col-12 col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title"><%- review.author.username %></h5>
+                                <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                                <p class="card-text"><%= review.comment %></p>
+                            </div>
+                            <% if (currentUser && currentUser._id.equals(review.author._id)) { %>
+                                <div class="card-footer bg-white">
+                                    <form class="mb-0" method="POST" action="/listings/<%= listings.id %>/reviews/<%= review.id %>?_method=DELETE">
+                                        <button class="btn btn-sm btn-dark">Delete</button>
+                                    </form>
+                                </div>
+                            <% } %>
                         </div>
-                        <% if (currentUser && currentUser._id.equals(review.author._id)) { %>
-                            <form class="mb-3" method="POST" action="/listings/<%= listings.id %>/reviews/<%= review.id %>?_method=DELETE">
-                                <button class="btn btn-sm btn-dark">Delete</button>
-                            </form>
-                        <% } %>
                     </div>
                 <% } %>
             </div>
         <% } %>
     </div>
 
-    <div class="col-8 offset-3 mt-3 mb-2">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto mt-3 mb-4">
         <h3>Where you will be</h3>
         <div id="map"></div>
     </div>
